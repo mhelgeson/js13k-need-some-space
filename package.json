@@ -1,6 +1,6 @@
 {
   "name": "js13k-need-some-space",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "An entry for js13kgames 2021",
   "main": "src/index.js",
   "config": {},
