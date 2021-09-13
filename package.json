@@ -1,0 +1,40 @@
+{
+  "name": "js13k-need-some-space",
+  "version": "0.0.0",
+  "description": "An entry for js13kgames 2021",
+  "main": "src/index.js",
+  "config": {},
+  "scripts": {
+    "build:max": "mkdir -p dist && rollup -c | node ./tasks/embed > dist/index.html",
+    "build:min": "mkdir -p dist && rollup -c | terser | node ./tasks/embed > dist/index.html",
+    "clean": "rm -rf dist",
+    "dist": "run-s clean build:min zip stats",
+    "pretty": "prettier -w '**/*.{js,md}'",
+    "server": "http-server -p 9999 ./dist",
+    "start": "run-p watch server",
+    "stats": "wc -c dist/js13k-2021.zip | awk '{print $1, \"bytes (13312 limit)\"}'",
+    "watch": "watch 'npm run build:max && date' ./src",
+    "zip": "zip dist/$npm_package_name.zip dist/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mhelgeson/js13k-2021.git"
+  },
+  "author": "mhelgeson",
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/mhelgeson/js13k-2021#readme",
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^13.0.4",
+    "debug": "^4.3.2",
+    "http-server": "^13.0.0",
+    "mkpath": "^1.0.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.3.2",
+    "rollup": "^2.56.2",
+    "terser": "^5.7.1",
+    "watch": "^1.0.2"
+  },
+  "dependencies": {
+    "prando": "^6.0.1"
+  }
+}
