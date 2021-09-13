@@ -12,7 +12,7 @@
     "pretty": "prettier -w '**/*.{js,md}'",
     "server": "http-server -p 9999 ./dist",
     "start": "run-p watch server",
-    "stats": "wc -c dist/js13k-2021.zip | awk '{print $1, \"bytes (13312 limit)\"}'",
+    "stats": "wc -c dist/js13k-need-some-space.zip | awk '{print $1, \"bytes (13312 limit)\"}'",
     "watch": "watch 'npm run build:max && date' ./src",
     "zip": "zip dist/$npm_package_name.zip dist/index.html"
   },
